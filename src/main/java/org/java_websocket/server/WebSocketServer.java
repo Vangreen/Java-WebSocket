@@ -578,6 +578,12 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
       server = ServerSocketChannel.open();
       server.configureBlocking(false);
       ServerSocket socket = server.socket();
+      if (isOverridePerformancePreferences()) {
+        socket.setPerformancePreferences(getConnectionTime(), getLatency(), getBandwidth());
+      }
+      if (isOverrideReceiveBufferSize()) {
+        setReceiveBufferSize(getReceiveBufferSize());
+      }
       socket.setReceiveBufferSize(WebSocketImpl.RCVBUF);
       socket.setReuseAddress(isReuseAddr());
       socket.bind(address, getMaxPendingConnections());

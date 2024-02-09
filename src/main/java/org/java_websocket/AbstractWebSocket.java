@@ -63,6 +63,13 @@ public abstract class AbstractWebSocket extends WebSocketAdapter {
    */
   private boolean reuseAddr;
 
+  private boolean overridePerformancePreferences;
+  private int connectionTime;
+  private int latency;
+  private int bandwidth;
+  private int receiveBufferSize;
+  private boolean overrideReceiveBufferSize;
+
   /**
    * Attribute for a service that triggers lost connection checking
    *
@@ -315,7 +322,54 @@ public abstract class AbstractWebSocket extends WebSocketAdapter {
     this.reuseAddr = reuseAddr;
   }
 
- 
+  public boolean isOverridePerformancePreferences() {
+    return overridePerformancePreferences;
+  }
+
+  public void setOverridePerformancePreferences(boolean overridePerformancePreferences) {
+    this.overridePerformancePreferences = overridePerformancePreferences;
+  }
+
+  public int getConnectionTime() {
+    return connectionTime;
+  }
+
+  public void setConnectionTime(int connectionTime) {
+    this.connectionTime = connectionTime;
+  }
+
+  public int getLatency() {
+    return latency;
+  }
+
+  public void setLatency(int latency) {
+    this.latency = latency;
+  }
+
+  public int getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(int bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
+  public int getReceiveBufferSize() {
+    return receiveBufferSize;
+  }
+
+  public void setReceiveBufferSize(int receiveBufferSize) {
+    this.receiveBufferSize = receiveBufferSize;
+  }
+
+  public boolean isOverrideReceiveBufferSize() {
+    return overrideReceiveBufferSize;
+  }
+
+  public void setOverrideReceiveBufferSize(boolean overrideReceiveBufferSize) {
+    this.overrideReceiveBufferSize = overrideReceiveBufferSize;
+  }
+
   /**
    * Getter for daemon
    *
